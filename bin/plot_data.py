@@ -42,8 +42,8 @@ def main():
 	ax.yaxis.set_ticklabels(ylabels)
 	### Set axis labels
 	ax.xaxis.set_label_position('bottom')
-	plt.xlabel(r"$Re(z)$", size=12)
-	plt.ylabel(r"$Im(z)$", size=12)
+	plt.xlabel(r"$c$", size=12)
+	plt.ylabel(r"$z$", size=12)
 
 	fname = file_dir.split('/')[-1]
 	fname = fname.split('.')[0]
