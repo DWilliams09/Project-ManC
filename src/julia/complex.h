@@ -28,4 +28,4 @@ COMPLEX complex_2(COMPLEX a);
 
 #endif
 
-*/ ####### END: COMPLEX ####### */
+/* ####### END: COMPLEX ####### */
