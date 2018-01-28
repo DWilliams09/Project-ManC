@@ -50,7 +50,7 @@ int main(int argc, char **argv)
 
 COMPLEX julia(COMPLEX z, COMPLEX c)
 {
-	return add_complex(square_complex(z), c);
+	return complex_add(complex_2(z), c);
 }
 
 
@@ -60,10 +60,10 @@ unsigned int iterate(long double x, long double y, COMPLEX c)
 	COMPLEX z = {x,y};
 	unsigned int iterations = 0;
 
-	while (abs_complex(z) < 2 && iterations < MAXITER) {
+	while (complex_abs(z) < 2 && iterations < MAXITER) {
 		z = julia(z, c);
 		iterations++;
-		if (abs_complex(z) > 2)
+		if (complex_abs(z) > 2)
 			{
 			    return iterations;
 			}
