@@ -27,7 +27,7 @@ def main():
 	d = pd.DataFrame(d.values.reshape([xlen,ylen]))
 	d = d.transpose()
 
-	plt.matshow(d, cmap='viridis')
+	plt.matshow(d, cmap='jet')
 
 	ax = plt.gca()
 	### Format axis ticks and labels
