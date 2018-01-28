@@ -1,3 +1,12 @@
+/*###
+# Name: Tim Frenzel
+# Student ID: 002267120
+# Email: frenz102@mail.chapman.edu
+# Course: CS510 Fall 2017
+###
+
+#######  START: CREAT JULIA SET #######
+#import packages */
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
@@ -6,35 +15,33 @@
 int main(int argc, char **argv)
 {
 	if (argc != 9) {
-		fprintf(stderr, "expecting 8 arguments: xmin, xmax, ymin, "
-                        "ymax, xpoints, ypoints, creal, and cimag\n");
-		return EXIT_FAILURE;
+		fprintf(stderr, "Incorrect numbers. Expecting 8 arguments\n");
+		return 0;
 	}
 
-	long double xmin = strtold(argv[1], NULL);
-	long double xmax = strtold(argv[2], NULL);
-	long double ymin = strtold(argv[3], NULL);
-	long double ymax = strtold(argv[4], NULL);
-	int xpoints = atoi(argv[5]);
-	int ypoints = atoi(argv[6]);
-	long double creal = strtold(argv[7], NULL);
-	long double cimag = strtold(argv[8], NULL);
+	/*determine parameter*/
+		long double xmin = strtold(argv[1], NULL);
+		long double xmax = strtold(argv[2], NULL);
+		long double ymin = strtold(argv[3], NULL);
+		long double ymax = strtold(argv[4], NULL);
+		int xpoints = atoi(argv[5]);
+		int ypoints = atoi(argv[6]);
+		long double creal = strtold(argv[7], NULL);
+		long double cimag = strtold(argv[8], NULL);
 
-	COMPLEX c = {creal, cimag};
+		COMPLEX c = {creal, cimag};
 
-	long double xstep = (xmax - xmin)/(xpoints - 1);
-	long double ystep = (ymax - ymin)/(ypoints - 1);
-	long double x = xmin;
-	long double y = ymin;
-	unsigned int n;
+		long double xstep = (xmax - xmin)/(xpoints - 1);
+		long double ystep = (ymax - ymin)/(ypoints - 1);
+		long double x = xmin;
+		long double y = ymin;
+		unsigned int n;
 
 	for (int i=0; i < xpoints; ++i) {
 		x = xmin + i * xstep;
 		for (int j=0; j < ypoints; ++j) {
 			y = ymin + j * ystep;
 			n = iterate(x, y, c);
-
-			printf("%Lf, %Lf, %d\n", x, y, n);
 		}
 	}
 
@@ -43,19 +50,24 @@ int main(int argc, char **argv)
 
 COMPLEX julia(COMPLEX z, COMPLEX c)
 {
-	/* Returns a single iteration of the julia function, (z -> z^2 + c) */
 	return add_complex(square_complex(z), c);
 }
 
+
+/* iterate julia function until z = max iterations or z > 2  */
 unsigned int iterate(long double x, long double y, COMPLEX c)
 {
-	/* Creates complex number z=x+iy and iterates the julia function until |z| > 2 or we reach max iterations */
 	COMPLEX z = {x,y};
-	unsigned int iters = 0;
+	unsigned int iterations = 0;
 
-	while (abs_complex(z) < 2 && iters < MAXITER) {
+	while (abs_complex(z) < 2 && iterations < MAXITER) {
 		z = julia(z, c);
-		iters++;
+		iterations++;
+		if (abs_complex(z) > 2)
+			{
+			    return iterations;
+			}
 	}
-	return iters;
+	return iterations;
 }
+/*#######  END: CREAT JULIA SET ####### */
