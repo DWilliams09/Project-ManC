@@ -1,0 +1,3 @@
+/bin/julia
+/bin/mandelbrot
+/data/*.csv
