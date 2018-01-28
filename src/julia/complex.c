@@ -36,4 +36,4 @@ COMPLEX complex_2(COMPLEX a) {
     return z;
 }
 
-*/ ####### END: COMPLEX FUNCTIONS ####### */
+/* ####### END: COMPLEX FUNCTIONS ####### */
