@@ -1,3 +1,12 @@
+/*###
+# Name: Tim Frenzel
+# Student ID: 002267120
+# Email: frenz102@mail.chapman.edu
+# Course: CS510 Fall 2017
+###
+
+####### START: COMPLEX #######
+#import packages */
 #ifndef _COMPLEX_H_
 #define _COMPLEX_H_
 
@@ -9,13 +18,14 @@ struct complex {
 };
 typedef struct complex COMPLEX;
 
-COMPLEX mult_complex(COMPLEX a, COMPLEX b);
-COMPLEX square_complex(COMPLEX a);
-COMPLEX add_complex(COMPLEX a, COMPLEX b);
-void print_complex(COMPLEX a);
-long double abs_complex(COMPLEX a);
+long double complex_abs(COMPLEX a);
+COMPLEX complex_add(COMPLEX a, COMPLEX b);
+COMPLEX complex_multi(COMPLEX a, COMPLEX b);
+COMPLEX complex_2(COMPLEX a);
 
-COMPLEX julia(COMPLEX, COMPLEX);
-unsigned int iterate(long double, long double, COMPLEX);
+    COMPLEX julia(COMPLEX, COMPLEX);
+    unsigned int iterate(long double, long double, COMPLEX);
 
 #endif
+
+*/ ####### END: COMPLEX ####### */
